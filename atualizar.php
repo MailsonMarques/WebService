@@ -1,9 +1,8 @@
 <?php
-	$codigo = $_POST["codigo"];
-	$nome = $_POST["nome"];
-	$email = $_POST["email"];
 
-	$conn = new mysqli("localhost", "root", "", "android");
+require_once 'DB.php';
+
+
 	$sql = "UPDATE clientes SET nome = ?, email = ? WHERE id = ?";
 	$stm = $conn->prepare($sql);
 	$stm->bind_param("ssi", $nome, $email, $codigo);
@@ -17,7 +16,5 @@
 	
 	echo json_encode($retorno);
 
-	$stm->close();
-	$conn->close();
 
 ?>

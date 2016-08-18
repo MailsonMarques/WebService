@@ -2,7 +2,7 @@
 
 require_once 'DB.php';
 
-	$sql = "SELECT enderecoNumero, enderecoCadastro, enderecoCidade  FROM tbEndereco WHERE tbCadastro_idCadastro = ?";
+	$sql = "SELECT * FROM tbEndereco WHERE tbCadastro_idCadastro = ?";
 	$stmt = DB::prepare($sql);
 	$stmt->bindParam(1, $_POST["idEnd"], PDO::PARAM_INT);
 	$stmt->execute();
