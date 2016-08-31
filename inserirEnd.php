@@ -12,12 +12,12 @@ require_once 'DB.php';
 	$stmt->bindParam(5, $_POST["enderecoTipo"], PDO::PARAM_STR);
 	$stmt->bindParam(6, $_POST["enderecoCidade"], PDO::PARAM_STR);
 
-	if ($stmt->execute()){
+	if($stmt->execute())
 		$retorno = array("retorno" => "YES");
-		echo json_encode($retorno);
-	} else {
+		
+	else
 		$retorno = array("retorno" => "NO");
-		echo json_encode($retorno);
-	}
+
+	echo json_encode($retorno);
 
 ?>

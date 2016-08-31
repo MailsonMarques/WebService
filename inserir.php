@@ -21,13 +21,13 @@ require_once 'DB.php';
 
 	}
 
-	if ($obj == true){
+	if ($obj == true)
 		$retorno = array("retorno" => "YES" ) + $result_json[0];
-		echo json_encode($retorno);
-	} else {
+
+	else
 		$retorno = array("retorno" => "NO");
-		echo json_encode($retorno);
-	}
+		
+	echo json_encode($retorno);
 	
 
 ?>

@@ -1,20 +1,15 @@
 <?php
-	$codigo = $_POST["codigo"];
 
-	$conn = new mysqli("localhost", "root", "", "android");
-	$sql = "DELETE FROM clientes WHERE id = ?";
-	$stm = $conn->prepare($sql);
-	$stm->bind_param("i", $codigo);
-	
-	$resultado = $stm->execute();
+require_once 'DB.php';
 
-	if($resultado)
+	$sql = "DELETE FROM tbendereco WHERE idEndereco = ?";
+	$stmt = DB::prepare($sql);
+	$stmt->bindParam(1, $_POST["codigo"], PDO::PARAM_INT);
+
+	if($stmt->execute())
 		$retorno = array("retorno" => "YES");
 	 else 
 		$retorno = array("retorno" => "NO");
 	
 	echo json_encode($retorno);
-
-	$stm->close();
-	$conn->close();
 ?>
